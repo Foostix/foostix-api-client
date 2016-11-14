@@ -41,6 +41,10 @@ module FoostixApi
       class Locationsearch < DefaultAction
         @path = '/search/geoportail/locationsearch'
       end
+
+      class Getfeature < DefaultAction
+        @path = '/search/geoportail/getfeature'
+      end
     end
   end
 end
