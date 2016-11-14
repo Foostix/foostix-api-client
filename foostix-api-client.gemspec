@@ -11,6 +11,6 @@ Gem::Specification.new do |s|
     'https://www.foostix.com'
   s.license       = 'MIT'
 
-  s.add_runtime_dependency 'rest-client', '~> 1.8'
+  s.add_runtime_dependency 'rest-client', '>= 1.8'
   s.add_runtime_dependency 'json', '= 1.8.3'
 end
