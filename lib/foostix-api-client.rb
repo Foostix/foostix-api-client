@@ -30,7 +30,8 @@ module FoostixApi
     end
 
     def self.get(params)
-      RestClient.get(FoostixApi.options[:api_uri]+@path, JSON.generate(params), {content_type: :json, accept: :json})
+      token = fetch_token
+      RestClient::Request.execute(:method => :get, :payload => params, :url => FoostixApi.options[:api_uri]+@path, :headers => {Authorization: "Token token="+token}).body
     end
   end
   
