@@ -46,5 +46,13 @@ module FoostixApi
         @path = '/search/geoportail/getfeature'
       end
     end
+
+    module Restaurants
+      class Delivery < DefaultAction
+        @path = '/search/restaurants/delivery'
+      end
+    end
   end
+
+
 end
