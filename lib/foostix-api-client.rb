@@ -54,6 +54,12 @@ module FoostixApi
       class DeliveryGenres < DefaultAction
         @path = '/search/restaurants/delivery_genres'
       end
+      class DeliveryTimes < DefaultAction
+        @path = '/search/restaurants/delivery_times'
+      end
+      class DeliveryFees < DefaultAction
+        @path = '/search/restaurants/delivery_fees'
+      end
     end
   end
 
