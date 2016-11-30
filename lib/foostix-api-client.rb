@@ -60,6 +60,12 @@ module FoostixApi
       class DeliveryFees < DefaultAction
         @path = '/search/restaurants/delivery_fees'
       end
+      class Pickup < DefaultAction
+        @path = '/search/restaurants/pickup'
+      end
+      class PickupGenres < DefaultAction
+        @path = '/search/restaurants/pickup_genres'
+      end
     end
   end
 
