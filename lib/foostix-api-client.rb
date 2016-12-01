@@ -66,6 +66,9 @@ module FoostixApi
       class PickupGenres < DefaultAction
         @path = '/search/restaurants/pickup_genres'
       end
+      class Open < DefaultAction
+        @path = '/restaurant/is_open'
+      end
     end
   end
 
