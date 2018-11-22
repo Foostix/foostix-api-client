@@ -35,7 +35,51 @@ module FoostixApi
     end
   end
 
+  private
+  class PostAction
+    @path = nil
+    def self.initialize
+      if !FoostixApi.options.has_key?(:api_key)
+        raise "API KEY required"
+      end
+      if !FoostixApi.options.has_key?(:api_uri)
+        raise "API URI required"
+      end
+    end
+
+    def self.fetch_token
+      if @token.nil? || Time.parse(@token["expires_at"]) < Time.now()
+        response = RestClient.post(FoostixApi.options[:api_uri]+"/auth", JSON.generate({:api_key => FoostixApi.options[:api_key]}), {content_type: :json, accept: :json})
+        @token = JSON.parse(response.body)
+      end
+      return @token["token"]
+    end
+
+    def self.post(args={}, params)
+      token = fetch_token
+      path = @path
+      args.each do |k,v|
+        path = @path.gsub("{"+k.to_s+"}", v.to_s)
+      end
+
+      RestClient::Request.execute(:method => :post, :payload => params, :url => FoostixApi.options[:api_uri]+path, :headers => {Authorization: "Token token="+token}).body
+    end
+
+  end
+
   public
+  module Restaurant
+    class ClearHoursCache < PostAction
+      @path = '/restaurant/{id}/clearHoursCache'
+    end
+  end
+
+  module Restaurants
+    class ClearHoursCache < PostAction
+      @path = '/restaurant/clearHoursCache'
+    end
+  end
+
   module Search
     module Geoportail
       class Locationsearch < DefaultAction
