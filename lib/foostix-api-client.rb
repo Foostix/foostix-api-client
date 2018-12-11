@@ -110,6 +110,9 @@ module FoostixApi
       class Pickup < DefaultAction
         @path = '/search/restaurants/pickup'
       end
+      class Pickup < DefaultAction
+        @path = '/search/restaurants/pickup_all'
+      end
       class PickupGenres < DefaultAction
         @path = '/search/restaurants/pickup_genres'
       end
