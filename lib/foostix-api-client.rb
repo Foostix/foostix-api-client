@@ -120,6 +120,12 @@ module FoostixApi
         @path = '/restaurant/is_open'
       end
     end
+
+    module Order
+      class CheckTime < DefaultAction
+        @path = "orders/{order_id}/{restaurant_id}/check_time/{minutes}"
+      end
+    end
   end
 
 
