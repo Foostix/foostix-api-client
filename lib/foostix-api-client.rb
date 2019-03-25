@@ -37,6 +37,7 @@ module FoostixApi
     def self.get_with_args(args={}, params)
       token = fetch_token
       
+      path = @path
       args.each do |k,v|
         path = @path.gsub("{"+k.to_s+"}", v.to_s)
       end
