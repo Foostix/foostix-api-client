@@ -1,7 +1,7 @@
 Gem::Specification.new do |s|
   s.name        = 'foostix-api-client'
-  s.version     = '0.0.13'
-  s.date        = '2016-11-08'
+  s.version     = '1.1.0'
+  s.date        = '2019-03-25'
   s.summary     = "Foostix Api Client Gem"
   s.description = "Gem for Foostix Api"
   s.authors     = ["Stephen Edwards"]
