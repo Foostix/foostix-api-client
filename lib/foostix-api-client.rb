@@ -39,7 +39,7 @@ module FoostixApi
       
       path = @path
       args.each do |k,v|
-        path = @path.gsub("{"+k.to_s+"}", v.to_s)
+        path = path.gsub("{"+k.to_s+"}", v.to_s)
       end
 
       RestClient::Request.execute(:method => :get, :payload => params, :url => FoostixApi.options[:api_uri]+path, :headers => {Authorization: "Token token="+token}).body
@@ -70,7 +70,7 @@ module FoostixApi
       token = fetch_token
       path = @path
       args.each do |k,v|
-        path = @path.gsub("{"+k.to_s+"}", v.to_s)
+        path = path.gsub("{"+k.to_s+"}", v.to_s)
       end
 
       RestClient::Request.execute(:method => :post, :payload => params, :url => FoostixApi.options[:api_uri]+path, :headers => {Authorization: "Token token="+token}).body
